@@ -12,10 +12,10 @@ public class HangUp extends Event {
         this.userId = userId;
     }
 
-    public void process(Simulation s) {
-        CallBank bank = (CallBank)s;
-
-        // to complete this now
+    public void process(Simulation simulation) {
+        CallBank bank = (CallBank)simulation;
+        ((CallBank) simulation).operators++;
+        System.out.println("Hang Up Message");
     }
 
 

@@ -7,15 +7,20 @@ import java.util.Random;
 import java.util.PriorityQueue;
 
 public class Simulation {
-    protected int time;                           // represents the simulation clock
-    protected int nextCallTime;
+    protected int time;
+    protected int nextCallTime = 0;
     protected PriorityQueue<Event> eventSet;
     protected Random r;
+    protected int howLong;
 
     /**
      * Constructor.
      */
     public Simulation() {
+        eventSet = new PriorityQueue<Event>();
+        r = new Random();
+
+        //Need to make next call
 
     }
 
@@ -33,6 +38,14 @@ public class Simulation {
      * @param stoppingTime
      */
     public void run (long stoppingTime) {
+        Event event = null;
 
+        while (!eventSet.isEmpty()){
+            event = eventSet.remove();
+            event.process(this);
+        }
     }
+
+    //Need public method for next call
+
 }
