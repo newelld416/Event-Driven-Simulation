@@ -5,10 +5,11 @@ package com;
  */
 public class DialIn extends Event {
 
-    // add instance variable
+    public int userId;
 
-    public DialIn(int userId, int t) {
-        // to complete
+    public DialIn(int userId, int time) {
+        super.time = time;
+        this.userId = userId;
     }
 
     public void process (Simulation s) {

@@ -2,13 +2,14 @@ package com;
 
 /**
  * Created by Daniel Newell on 9/14/2014.
-        */
+ */
 public class HangUp extends Event {
 
-    // add instance variable
+    public int userId;
 
-    public HangUp (int userId, int t) {
-
+    public HangUp (int userId, int time) {
+        super.time = time;
+        this.userId = userId;
     }
 
     public void process(Simulation s) {

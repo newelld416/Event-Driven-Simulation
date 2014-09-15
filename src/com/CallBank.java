@@ -5,12 +5,21 @@ package com;
  */
 public class CallBank extends Simulation {
 
-    // add instance variables
+    public int operators;
+    public int averageLength;
+    public int callInterval;
 
-    public CallBank (int operators, int avgLen, int callIntrval) {
-        // to complete
+    /**
+     * Constructor.
+     * @param operators
+     * @param averageLength
+     * @param callInterval
+     */
+    public CallBank (int operators, int averageLength, int callInterval) {
+        this.operators = operators;
+        this.averageLength = averageLength;
+        this.callInterval = callInterval;
     }
 
-    // add other methods
 
 }

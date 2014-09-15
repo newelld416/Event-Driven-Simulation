@@ -8,22 +8,31 @@ import java.util.PriorityQueue;
 
 public class Simulation {
     protected int time;                           // represents the simulation clock
-
+    protected int nextCallTime;
     protected PriorityQueue<Event> eventSet;
     protected Random r;
 
+    /**
+     * Constructor.
+     */
     public Simulation() {
-        // to complete
+
     }
 
+    /**
+     * Schedule an event, add it to the queue.
+     * @param e
+     */
     public void scheduleEvent (Event e) {
-        // add e to the priority queue
+        eventSet.add(e);
     }
 
+    /**
+     * Run the simulation until either the priority queue is empty or the simulation time is up
+     * processing one event that is removed from the priority queue each time.
+     * @param stoppingTime
+     */
     public void run (long stoppingTime) {
-        // run the simulation until either the priority queue is empty or
-// the simulation time is up
-// processing one event that is removed from the priority queue
-// each time
+
     }
 }

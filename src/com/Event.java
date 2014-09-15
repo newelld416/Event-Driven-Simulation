@@ -6,9 +6,18 @@ package com;
 public abstract class Event implements Comparable<Event> {
     int time;
 
-    public int compareTo( Event rhs ) {
-        return 1;
+    /**
+     * Compare to method, used to compare events.
+     * @param event
+     * @return
+     */
+    public int compareTo(Event event) {
+        return this.time - event.time;
     }
 
-    public abstract void process(Simulation s);
+    /**
+     * This process method is implemented int DialIn and HangUp classes.
+     * @param simulation
+     */
+    public abstract void process(Simulation simulation);
 }
