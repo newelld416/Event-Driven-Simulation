@@ -2,7 +2,7 @@ package com;
 
 /**
  * Created by Daniel Newell on 9/14/2014.
- */
+        */
 public class HangUp extends Event {
 
     // add instance variable
@@ -14,6 +14,8 @@ public class HangUp extends Event {
     public void process(Simulation s) {
         CallBank bank = (CallBank)s;
 
-        // to complete
+        // to complete this
     }
+
+
 }
