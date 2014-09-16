@@ -22,7 +22,6 @@ public class CallBank extends Simulation {
         this.operators = operators;
         this.averageLength = averageLength;
         this.callInterval = callInterval;
-
         super.eventSet = new PriorityQueue<Event>();
         super.r = new Random();
         nextCall(this.callInterval);

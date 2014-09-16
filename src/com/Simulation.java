@@ -60,8 +60,7 @@ public class Simulation {
      * Then advance the time when next DIAL_IN event will occur.
      * In practice, we would use a random number to set the time.
      */
-    public void nextCall(int delta)
-    {
+    public void nextCall(int delta){
         DialIn dialIn = new DialIn(userNum++, nextCallTime);
         scheduleEvent(dialIn);
         nextCallTime += delta;
