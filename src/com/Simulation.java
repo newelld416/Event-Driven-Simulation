@@ -7,16 +7,18 @@ import java.util.Random;
 import java.util.PriorityQueue;
 
 public class Simulation {
+    //These parameters are used throughout the simulation
     protected int nextCallTime = 0;
     protected PriorityQueue<Event> eventSet;
     protected Random r;
     protected int howLong;
     private int userNum = 0;
 
+    //These parameters are used for the statistics
     public int callsDialedIn = 0;
     public int callsAccepted = 0;
     public int callsRejected = 0;
-    public int totalTimeConnected = 0;
+    public double totalTimeConnected = 0;
 
     /**
      * Constructor.
@@ -71,6 +73,6 @@ public class Simulation {
         System.out.printf(Constants.CALLS_DIALED_IN_MESSAGE, this.callsDialedIn);
         System.out.printf(Constants.CALLS_ACCEPTED_MESSAGE, this.callsAccepted);
         System.out.printf(Constants.CALLS_REJECTED_MESSAGE, this.callsRejected);
-        System.out.printf(Constants.AVERAGE_CONNECTED_TIME_MESSAGE, (double) this.totalTimeConnected/this.callsAccepted);
+        System.out.printf(Constants.AVERAGE_CONNECTED_TIME_MESSAGE, this.totalTimeConnected/ (double) this.callsAccepted);
     }
 }

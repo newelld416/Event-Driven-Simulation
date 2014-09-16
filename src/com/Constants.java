@@ -14,5 +14,5 @@ public class Constants {
     public static final String CALLS_DIALED_IN_MESSAGE = "Number of calls dialed in: %d\n";
     public static final String CALLS_ACCEPTED_MESSAGE = "Number of calls accepted: %d\n";
     public static final String CALLS_REJECTED_MESSAGE = "Number of calls rejected: %d\n";
-    public static final String AVERAGE_CONNECTED_TIME_MESSAGE = "Average time connected: %.0f\n";
+    public static final String AVERAGE_CONNECTED_TIME_MESSAGE = "Average time connected: %.4f\n";
 }

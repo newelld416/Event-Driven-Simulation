@@ -25,20 +25,25 @@ public class DialIn extends Event {
         CallBank callbank = (CallBank)simulation;
         callbank.callsDialedIn++;
         System.out.printf(Constants.DIAL_IN_MESSAGE, this.userId, super.time);
+
         if (callbank.operators > 0){
-            callbank.callsAccepted++;
-            callbank.operators--;
-            callbank.howLong = callbank.r.nextInt(callbank.averageLength) + 1;
-            callbank.totalTimeConnected += callbank.howLong;
-            System.out.printf(Constants.CONNECTION_MESSAGE, callbank.howLong);
-            super.time += callbank.howLong;
+            // If an operator is availablethat the call is accepted
+            callbank.callsAccepted++; callbank.operators--;
+            callbank.howLong = callbank.r.nextInt(callbank.averageLength) + 1;  // Get the duration of the call
+            callbank.totalTimeConnected += callbank.howLong;    // Add that to the total time connected
+            System.out.printf(Constants.CONNECTION_MESSAGE, callbank.howLong);  //Display the connection
+            super.time += callbank.howLong; //
+
+            //Add new HangUp event to eventSet
             HangUp hangUp = new HangUp(this.userId, super.time);
             callbank.scheduleEvent(hangUp);
         } else {
+            // If an operator is not available than reject the call
             callbank.callsRejected++;
             System.out.print(Constants.BUSY_MESSAGE);
         }
 
+        // Add the next call to the eventSet
         callbank.nextCall(callbank.callInterval);
     }
 
