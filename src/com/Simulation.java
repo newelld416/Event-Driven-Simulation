@@ -7,22 +7,16 @@ import java.util.Random;
 import java.util.PriorityQueue;
 
 public class Simulation {
-    protected int time;
     protected int nextCallTime = 0;
     protected PriorityQueue<Event> eventSet;
     protected Random r;
     protected int howLong;
+    private int userNum = 0;
 
     /**
      * Constructor.
      */
-    public Simulation() {
-        eventSet = new PriorityQueue<Event>();
-        r = new Random();
-
-        //Need to make next call
-
-    }
+    public Simulation() {}
 
     /**
      * Schedule an event, add it to the queue.
@@ -42,10 +36,25 @@ public class Simulation {
 
         while (!eventSet.isEmpty()){
             event = eventSet.remove();
+
+            if(event.time > stoppingTime ) {
+                break;
+            }
+
             event.process(this);
         }
     }
 
-    //Need public method for next call
+    /**
+     * Place a new DIAL_IN event into the event queue.
+     * Then advance the time when next DIAL_IN event will occur.
+     * In practice, we would use a random number to set the time.
+     */
+    public void nextCall(int delta)
+    {
+        DialIn dialIn = new DialIn(userNum++, nextCallTime);
+        scheduleEvent(dialIn);
+        nextCallTime += delta;
+    }
 
 }

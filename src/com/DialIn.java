@@ -6,28 +6,37 @@ package com;
 public class DialIn extends Event {
 
     public int userId;
-    private int nextCallTime = 0;
 
+    /**
+     * This is the constructor.
+     * @param userId
+     * @param time
+     */
     public DialIn(int userId, int time) {
         super.time = time;
         this.userId = userId;
     }
 
+    /**
+     * This is the definition of the process method for the DialIn object.
+     * @param simulation
+     */
     public void process (Simulation simulation) {
-        CallBank bank = (CallBank)simulation;
+        CallBank callbank = (CallBank)simulation;
 
-        System.out.println("Dial In Message");
-        if (bank.operators > 0){
-            bank.operators--;
-            simulation.howLong = simulation.r.nextInt(((CallBank) simulation).averageLength) + 1;
-            System.out.println("Connect Message");
-            super.time += simulation.howLong;
-            simulation.eventSet.add(this);
+        System.out.printf(Constants.DIAL_IN_MESSAGE, this.userId, super.time);
+        if (callbank.operators > 0){
+            callbank.operators--;
+            callbank.howLong = callbank.r.nextInt(callbank.averageLength) + 1;
+            System.out.printf(Constants.CONNECTION_MESSAGE, callbank.howLong);
+            super.time += callbank.howLong;
+            HangUp hangUp = new HangUp(this.userId, super.time);
+            callbank.scheduleEvent(hangUp);
         } else {
-            System.out.println("Busy Message");
+            System.out.print(Constants.BUSY_MESSAGE);
         }
 
-        //TODO: Need to perform next call
+        callbank.nextCall(callbank.callInterval);
     }
 
 
