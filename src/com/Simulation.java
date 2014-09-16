@@ -16,6 +16,7 @@ public class Simulation {
     public int callsDialedIn = 0;
     public int callsAccepted = 0;
     public int callsRejected = 0;
+    public int totalTimeConnected = 0;
 
     /**
      * Constructor.
@@ -48,11 +49,7 @@ public class Simulation {
             event.process(this);
         }
 
-        System.out.println(Constants.STATISTICS_MESSAGE);
-        System.out.printf(Constants.CALLS_DIALED_IN_MESSAGE, this.callsDialedIn);
-        System.out.printf(Constants.CALLS_ACCEPTED_MESSAGE, this.callsAccepted);
-        System.out.printf(Constants.CALLS_REJECTED_MESSAGE, this.callsRejected);
-
+        printStatistics();
     }
 
     /**
@@ -66,4 +63,14 @@ public class Simulation {
         nextCallTime += delta;
     }
 
+    /**
+     * This method prints the statistics.
+     */
+    public void printStatistics(){
+        System.out.println(Constants.STATISTICS_MESSAGE);
+        System.out.printf(Constants.CALLS_DIALED_IN_MESSAGE, this.callsDialedIn);
+        System.out.printf(Constants.CALLS_ACCEPTED_MESSAGE, this.callsAccepted);
+        System.out.printf(Constants.CALLS_REJECTED_MESSAGE, this.callsRejected);
+        System.out.printf(Constants.AVERAGE_CONNECTED_TIME_MESSAGE, (double) this.totalTimeConnected/this.callsAccepted);
+    }
 }

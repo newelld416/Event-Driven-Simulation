@@ -29,6 +29,7 @@ public class DialIn extends Event {
             callbank.callsAccepted++;
             callbank.operators--;
             callbank.howLong = callbank.r.nextInt(callbank.averageLength) + 1;
+            callbank.totalTimeConnected += callbank.howLong;
             System.out.printf(Constants.CONNECTION_MESSAGE, callbank.howLong);
             super.time += callbank.howLong;
             HangUp hangUp = new HangUp(this.userId, super.time);
