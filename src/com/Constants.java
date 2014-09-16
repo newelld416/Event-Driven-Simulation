@@ -10,4 +10,8 @@ public class Constants {
     public static final String DIAL_IN_MESSAGE = "User %d dials in at time %d ";
     public static final String CONNECTION_MESSAGE = "and connects for %d minutes\n";
     public static final String HANG_UP_MESSAGE = "User %d hangs up at time %d\n";
+    public static final String STATISTICS_MESSAGE = "\n\n-------Statistics-------";
+    public static final String CALLS_DIALED_IN_MESSAGE = "Number of calls dialed in: %d\n";
+    public static final String CALLS_ACCEPTED_MESSAGE = "Number of calls accepted: %d\n";
+    public static final String CALLS_REJECTED_MESSAGE = "Number of calls rejected: %d\n";
 }

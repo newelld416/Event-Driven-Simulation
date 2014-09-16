@@ -13,6 +13,10 @@ public class Simulation {
     protected int howLong;
     private int userNum = 0;
 
+    public int callsDialedIn = 0;
+    public int callsAccepted = 0;
+    public int callsRejected = 0;
+
     /**
      * Constructor.
      */
@@ -43,6 +47,12 @@ public class Simulation {
 
             event.process(this);
         }
+
+        System.out.println(Constants.STATISTICS_MESSAGE);
+        System.out.printf(Constants.CALLS_DIALED_IN_MESSAGE, this.callsDialedIn);
+        System.out.printf(Constants.CALLS_ACCEPTED_MESSAGE, this.callsAccepted);
+        System.out.printf(Constants.CALLS_REJECTED_MESSAGE, this.callsRejected);
+
     }
 
     /**

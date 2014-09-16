@@ -23,9 +23,10 @@ public class DialIn extends Event {
      */
     public void process (Simulation simulation) {
         CallBank callbank = (CallBank)simulation;
-
+        callbank.callsDialedIn++;
         System.out.printf(Constants.DIAL_IN_MESSAGE, this.userId, super.time);
         if (callbank.operators > 0){
+            callbank.callsAccepted++;
             callbank.operators--;
             callbank.howLong = callbank.r.nextInt(callbank.averageLength) + 1;
             System.out.printf(Constants.CONNECTION_MESSAGE, callbank.howLong);
@@ -33,6 +34,7 @@ public class DialIn extends Event {
             HangUp hangUp = new HangUp(this.userId, super.time);
             callbank.scheduleEvent(hangUp);
         } else {
+            callbank.callsRejected++;
             System.out.print(Constants.BUSY_MESSAGE);
         }
 
