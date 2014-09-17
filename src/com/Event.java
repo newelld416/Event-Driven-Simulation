@@ -5,6 +5,7 @@ package com;
  */
 public abstract class Event implements Comparable<Event> {
     int time;
+    int userId;
 
     /**
      * Compare to method, used to compare events.

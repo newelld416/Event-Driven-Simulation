@@ -5,8 +5,6 @@ package com;
  */
 public class DialIn extends Event {
 
-    public int userId;
-
     /**
      * This is the constructor.
      * @param userId
@@ -14,7 +12,7 @@ public class DialIn extends Event {
      */
     public DialIn(int userId, int time) {
         super.time = time;
-        this.userId = userId;
+        super.userId = userId;
     }
 
     /**
@@ -24,15 +22,19 @@ public class DialIn extends Event {
     public void process (Simulation simulation) {
         CallBank callbank = (CallBank)simulation;
         callbank.callsDialedIn++;
-        System.out.printf(Constants.DIAL_IN_MESSAGE, this.userId, super.time);
+        Utilities.OutputMessage(String.format(Constants.DIAL_IN_MESSAGE, this.userId, super.time), Constants.OUTPUT_FILENAME);
 
         if (callbank.operators > 0){
-            // If an operator is availablethat the call is accepted
+            // If an operator is available than the call is accepted
             callbank.callsAccepted++; callbank.operators--;
             callbank.howLong = callbank.r.nextInt(callbank.averageLength) + 1;  // Get the duration of the call
             callbank.totalTimeConnected += callbank.howLong;    // Add that to the total time connected
-            System.out.printf(Constants.CONNECTION_MESSAGE, callbank.howLong);  //Display the connection
-            super.time += callbank.howLong; //
+            Utilities.OutputMessage(String.format(Constants.CONNECTION_MESSAGE, callbank.howLong), Constants.OUTPUT_FILENAME);
+            super.time += callbank.howLong;
+
+            callbank.longestTimeConnected = callbank.howLong > callbank.longestTimeConnected ?
+                    callbank.howLong :
+                    callbank.longestTimeConnected;
 
             //Add new HangUp event to eventSet
             HangUp hangUp = new HangUp(this.userId, super.time);
@@ -40,7 +42,7 @@ public class DialIn extends Event {
         } else {
             // If an operator is not available than reject the call
             callbank.callsRejected++;
-            System.out.print(Constants.BUSY_MESSAGE);
+            Utilities.OutputMessage(Constants.BUSY_MESSAGE, Constants.OUTPUT_FILENAME);
         }
 
         // Add the next call to the eventSet

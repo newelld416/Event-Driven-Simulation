@@ -5,8 +5,6 @@ package com;
  */
 public class HangUp extends Event {
 
-    public int userId;
-
     /**
      * This is the constructor.
      * @param userId
@@ -14,7 +12,7 @@ public class HangUp extends Event {
      */
     public HangUp (int userId, int time) {
         super.time = time;
-        this.userId = userId;
+        super.userId = userId;
     }
 
     /**
@@ -24,7 +22,7 @@ public class HangUp extends Event {
     public void process(Simulation simulation) {
         CallBank callBank = (CallBank)simulation;
         callBank.operators++;
-        System.out.printf(Constants.HANG_UP_MESSAGE, this.userId, super.time);
+        Utilities.OutputMessage(String.format(Constants.HANG_UP_MESSAGE, this.userId, super.time), Constants.OUTPUT_FILENAME);
     }
 
 
