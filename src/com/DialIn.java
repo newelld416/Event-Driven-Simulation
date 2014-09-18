@@ -32,6 +32,7 @@ public class DialIn extends Event {
             Utilities.OutputMessage(String.format(Constants.CONNECTION_MESSAGE, callbank.howLong), Constants.OUTPUT_FILENAME);
             super.time += callbank.howLong;
 
+            // This finds the longest time a user is connected
             callbank.longestTimeConnected = callbank.howLong > callbank.longestTimeConnected ?
                     callbank.howLong :
                     callbank.longestTimeConnected;
