@@ -10,21 +10,21 @@ public class CallBank extends Simulation {
 
     public int operators;
     public int averageLength;
-    public int callInterval;
+    public int maxCallInterval;
 
     /**
      * This is the constructor.
      * @param operators
      * @param averageLength
-     * @param callInterval
+     * @param maxCallInterval
      */
-    public CallBank (int operators, int averageLength, int callInterval) {
+    public CallBank (int operators, int averageLength, int maxCallInterval) {
         this.operators = operators;
         this.averageLength = averageLength;
-        this.callInterval = callInterval;
+        this.maxCallInterval = maxCallInterval;
         super.eventSet = new PriorityQueue<Event>();
         super.r = new Random();
-        nextCall(this.callInterval);
+        nextCall(super.r.nextInt(this.maxCallInterval)+1);
     }
 
 

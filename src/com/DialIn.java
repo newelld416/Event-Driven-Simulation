@@ -46,9 +46,7 @@ public class DialIn extends Event {
             Utilities.OutputMessage(Constants.BUSY_MESSAGE, Constants.OUTPUT_FILENAME);
         }
 
-        // Add the next call to the eventSet
-        callbank.nextCall(callbank.callInterval);
+        // Add the next call to the eventSet with a random time interval
+        callbank.nextCall(callbank.r.nextInt(callbank.maxCallInterval)+1);
     }
-
-
 }

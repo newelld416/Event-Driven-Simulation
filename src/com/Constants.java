@@ -14,7 +14,8 @@ public class Constants {
     public static final String CALLS_DIALED_IN_MESSAGE = "Number of calls dialed in: %d\n";
     public static final String CALLS_ACCEPTED_MESSAGE = "Number of calls accepted: %d\n";
     public static final String CALLS_REJECTED_MESSAGE = "Number of calls rejected: %d\n";
-    public static final String AVERAGE_CONNECTED_TIME_MESSAGE = "Average time connected: %.4f\n";
+    public static final String TOTAL_TIME_CONNECTED_MESSAGE = "Total time connected: %.0f\n";
+    public static final String AVERAGE_TIME_CONNECTED_MESSAGE = "Average time connected: %.4f\n";
     public static final String LONGEST_TIME_CONNECTED_MESSAGE = "Longest time connected: %d";
 
     public static final boolean PRINT_TO_FILE = false;

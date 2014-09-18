@@ -78,7 +78,8 @@ public class Simulation {
         Utilities.OutputMessage(String.format(Constants.CALLS_DIALED_IN_MESSAGE, this.callsDialedIn), Constants.OUTPUT_FILENAME);
         Utilities.OutputMessage(String.format(Constants.CALLS_ACCEPTED_MESSAGE, this.callsAccepted), Constants.OUTPUT_FILENAME);
         Utilities.OutputMessage(String.format(Constants.CALLS_REJECTED_MESSAGE, this.callsRejected), Constants.OUTPUT_FILENAME);
-        Utilities.OutputMessage(String.format(Constants.AVERAGE_CONNECTED_TIME_MESSAGE, this.totalTimeConnected/ (double) this.callsAccepted), Constants.OUTPUT_FILENAME);
+        Utilities.OutputMessage(String.format(Constants.TOTAL_TIME_CONNECTED_MESSAGE, this.totalTimeConnected), Constants.OUTPUT_FILENAME);
+        Utilities.OutputMessage(String.format(Constants.AVERAGE_TIME_CONNECTED_MESSAGE, this.totalTimeConnected/ (double) this.callsAccepted), Constants.OUTPUT_FILENAME);
         Utilities.OutputMessage(String.format(Constants.LONGEST_TIME_CONNECTED_MESSAGE, this.longestTimeConnected), Constants.OUTPUT_FILENAME);
     }
 
