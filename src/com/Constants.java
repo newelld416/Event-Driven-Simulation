@@ -18,6 +18,6 @@ public class Constants {
     public static final String AVERAGE_TIME_CONNECTED_MESSAGE = "Average time connected: %.4f\n";
     public static final String LONGEST_TIME_CONNECTED_MESSAGE = "Longest time connected: %d";
 
-    public static final boolean PRINT_TO_FILE = false;
+    public static final boolean PRINT_TO_FILE = true;
     public static final String OUTPUT_FILENAME = "Output.txt";
 }

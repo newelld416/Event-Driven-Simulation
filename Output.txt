@@ -1,0 +1,44 @@
+User 0 dials in at time 0 and connects for 1 minutes
+User 0 hangs up at time 1
+User 1 dials in at time 1 and connects for 3 minutes
+User 2 dials in at time 2 and connects for 2 minutes
+User 3 dials in at time 3 and connects for 1 minutes
+User 1 hangs up at time 4
+User 4 dials in at time 4 and connects for 5 minutes
+User 3 hangs up at time 4
+User 2 hangs up at time 4
+User 5 dials in at time 5 and connects for 5 minutes
+User 6 dials in at time 6 and connects for 3 minutes
+User 7 dials in at time 7 but gets busy signal
+User 8 dials in at time 8 but gets busy signal
+User 4 hangs up at time 9
+User 9 dials in at time 9 and connects for 5 minutes
+User 6 hangs up at time 9
+User 10 dials in at time 10 and connects for 1 minutes
+User 5 hangs up at time 10
+User 11 dials in at time 11 and connects for 3 minutes
+User 10 hangs up at time 11
+User 12 dials in at time 12 and connects for 2 minutes
+User 13 dials in at time 13 but gets busy signal
+User 9 hangs up at time 14
+User 14 dials in at time 14 and connects for 2 minutes
+User 12 hangs up at time 14
+User 11 hangs up at time 14
+User 15 dials in at time 15 and connects for 4 minutes
+User 14 hangs up at time 16
+User 16 dials in at time 16 and connects for 3 minutes
+User 17 dials in at time 17 and connects for 4 minutes
+User 18 dials in at time 18 but gets busy signal
+User 16 hangs up at time 19
+User 19 dials in at time 19 and connects for 2 minutes
+User 15 hangs up at time 19
+User 20 dials in at time 20 and connects for 3 minutes
+
+
+-------Statistics-------
+Number of calls dialed in: 21
+Number of calls accepted: 17
+Number of calls rejected: 4
+Total time connected: 49
+Average time connected: 2.8824
+Longest time connected: 5
